@@ -5,9 +5,5 @@ Scenario('Login', async () => {
     // pages.loginPage.openFortressSite();
     // pages.loginPage.setCookieAtContext();
     // pages.loginPage.openFortressSite();
-
-
-    // pause();
     pages.loginPage.open()
-    pause();
 });
