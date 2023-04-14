@@ -52,6 +52,7 @@ exports.config = {
     },
     allure: {
       enabled: true,
+      require: '@codeceptjs/allure-legacy',
     },
     autoDelay: {
       enabled: true,
