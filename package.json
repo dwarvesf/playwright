@@ -4,6 +4,7 @@
   "description": "",
   "main": "codecept.conf.js",
   "dependencies": {
+    "allure-commandline": "^2.21.0",
     "codeceptjs": "^3.4.1",
     "crypto-js": "^4.1.1",
     "dotenv": "^16.0.3"
@@ -12,7 +13,8 @@
     "playwright": "^1.32.2"
   },
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "test:ci": "npx codeceptjs run --steps"
   },
   "keywords": [],
   "author": "kyzu.tran",
