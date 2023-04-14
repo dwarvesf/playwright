@@ -14,7 +14,7 @@
   },
   "scripts": {
     "test": "mocha",
-    "test:ci": "npx codeceptjs run --steps"
+    "test:ci": "export HEADLESS=true && npx codeceptjs run --steps"
   },
   "keywords": [],
   "author": "kyzu.tran",
