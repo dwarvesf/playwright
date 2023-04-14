@@ -1,5 +1,5 @@
-const loginPage = require('./login.page.js');
+const dashboardPage = require('./dashboard.page.js');
 
 module.exports = {
-    loginPage
+    dashboardPage
 }

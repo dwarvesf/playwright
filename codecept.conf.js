@@ -33,9 +33,6 @@ exports.config = {
         ],
       },
     },
-    BaseHelper: {
-      require: './src/main/helpers/base_helper.js',
-    },
     Utils: {
       require: './src/main/helpers/utils_helper.js',
     }
@@ -66,6 +63,29 @@ exports.config = {
     retryFailedStep: {
       enabled: false,
     },
+    customLocator: {
+      enabled: true,
+      showActual: true,
+      attribute: 'data-menu-id',
+    },
+    autoLogin: {
+      enabled: true,
+      saveToFile: true,
+      inject: 'loginAs',
+      users: {
+          dfQA: {
+              login: (I) => {
+                I.amOnPage('/');
+                I.setPopupCookie(true);
+                I.amOnPage('/');
+                I.waitForText('Dashboard', 10, '.ant-typography')
+              },
+              check: (I) => {
+                I.seeInCurrentUrl('/dashboard');
+              },
+          },
+      },
+  },
   },
   name: 'DF'
 }

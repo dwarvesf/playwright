@@ -1,9 +1,7 @@
-const { pages } = inject()
-Feature('@first Login Fortress @smoke @initialize')
+const { pages, loginAs } = inject()
+Feature('Login Fortress and see Dashboard')
 
 Scenario('Login', async () => {
-    // pages.loginPage.openFortressSite();
-    // pages.loginPage.setCookieAtContext();
-    // pages.loginPage.openFortressSite();
-    pages.loginPage.open()
+    await loginAs('dfQA')
+    pages.dashboardPage.then_verifyDashboardDisplays()
 });
