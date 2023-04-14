@@ -1,0 +1,20 @@
+{
+  "name": "DF",
+  "version": "1.0.0",
+  "description": "",
+  "main": "codecept.conf.js",
+  "dependencies": {
+    "codeceptjs": "^3.4.1",
+    "crypto-js": "^4.1.1",
+    "dotenv": "^16.0.3"
+  },
+  "devDependencies": {
+    "playwright": "^1.32.2"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [],
+  "author": "kyzu.tran",
+  "license": "ISC"
+}
