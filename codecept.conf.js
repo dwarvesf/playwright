@@ -17,7 +17,7 @@ setCommonPlugins();
 /** @type {CodeceptJS.MainConfig} */
 exports.config = {
   tests: './src/test/*_test.js',
-  output: './output',
+  output: './reports',
   helpers: {
     Playwright: {
       url: 'https://develop--fortress-v2.netlify.app',
