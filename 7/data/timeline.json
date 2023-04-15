@@ -1,0 +1,1 @@
+{"uid":"ab17fc5a4eb3bca4b216b548c7f9fcbc","children":[{"name":"Login","uid":"f3e0b0f2822203a2","parentUid":"ab17fc5a4eb3bca4b216b548c7f9fcbc","status":"passed","time":{"start":1681541376062,"stop":1681541381520,"duration":5458},"flaky":false,"newFailed":false,"newPassed":false,"newBroken":false,"retriesCount":0,"retriesStatusChange":false,"parameters":[]}],"name":"timeline"}
