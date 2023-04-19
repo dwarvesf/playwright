@@ -122,6 +122,20 @@ Run tests in parallel with 3 workers:
 npx codeceptjs run-workers 3
 ```
 
-# Debugging Tests
+## Debugging Tests
 
 Refer at [here](https://codecept.io/advanced/#tags)
+
+
+## Naming conventions
+
+| Locator               | Abbreviation | Example        |
+| --------------------- | ------------ | -------------- |
+| Text box, Input field | txt          | txtUsername    |
+| Text area             | txa          | txaDescription |
+| Button                | btn          | btnSubmit      |
+| Label, Text           | lbl          | lblUserId      |
+| Dropdown list         | ddl          | ddlProvince    |
+| Image                 | img          | imgProfile     |
+| Link                  | lnk          | lnkUserDetail  |
+| Table                 | tbl          | tblUserList    |
