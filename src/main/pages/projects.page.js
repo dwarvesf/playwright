@@ -1,6 +1,6 @@
 const { I, testData } = inject();
 
-const searchProjectBox = { css: '.ant-input' }
+const searchProjectBox = { xpath: '//input[@placeholder="Search projects"]'}
 const projecFortressName = { css: '.styled[href="/projects/fortress"]'}
 
 const lblTitleProject = { css: '.ant-typography' }
@@ -20,18 +20,15 @@ const submitBtn = 'button[type="submit"]'
 const name = 'AUTO PROJECT ' + I.randomString(5, 'aA');
 
 class ProjectsPage {
-    then_searchProject() {
-        I.click(searchProjectBox)
-        I.fillField(searchProjectBox, 'Not exist project')
+    then_searchProjectAndVerifyResult() {
+        I.clearAndFillField(searchProjectBox, 'Not exist project')
         I.see('No Data')
-        I.click(searchProjectBox)
-        I.clearField(searchProjectBox)
-        I.fillField(searchProjectBox, 'Fortress')
+        I.clearAndFillField(searchProjectBox, 'Fortress')
         I.see('Fortress', projecFortressName)
     }
     
 
-    then_clickOnCreateNewProject() {
+    and_clickOnCreateNewProject() {
         I.click('Add Project')
     }
 }
@@ -39,7 +36,7 @@ class ProjectsPage {
 class NewProjectPage extends ProjectsPage {
     
     and_createNewProject() {
-        super.then_clickOnCreateNewProject()
+        super.and_clickOnCreateNewProject()
         I.see('New project', lblTitleProject)
         I.clearAndFillField(projectName, name)
         I.clearAndFillField(status, 'Active')

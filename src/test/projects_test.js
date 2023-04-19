@@ -9,8 +9,8 @@ Scenario('Verify Projects Page Displayed', async () => {
 Scenario('Search Project', async () => {
     await loginAs('dfQA')
     pages.dashboardPage.then_openAndVerifyProjectsPageDisplays()
-    pages.projectsPage.then_searchProject()
-});
+    pages.projectsPage.then_searchProjectAndVerifyResult()
+}).tag('@searchProject');
 
 Scenario('Create New Project', async () => {
     await loginAs('dfQA')
