@@ -66,8 +66,10 @@ module.exports = function() {
      * @param locator located by CSS|XPath|strict locator.
      */
     clearAndFillField(locator, value) {
+        this.click(locator);
         this.clearField(locator);
         this.fillField(locator, value);
+        this.pressKey('Enter');
     },
 
     /**
@@ -99,7 +101,18 @@ module.exports = function() {
       const bytes = cryptoJS.AES.decrypt(cipherText, passPhrase);
       const originalText = bytes.toString(cryptoJS.enc.Utf8);
       return originalText;
-    }
+    }, 
+
+    randomString(length, chars) {
+      var mask = '';
+      if (chars.indexOf('a') > -1) mask += 'abcdefghijklmnopqrstuvwxyz';
+      if (chars.indexOf('A') > -1) mask += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+      if (chars.indexOf('#') > -1) mask += '0123456789';
+      if (chars.indexOf('!') > -1) mask += '~`!@#$%^&*()_+-={}[]:";\'<>?,./|\\';
+      var result = '';
+      for (var i = length; i > 0; --i) result += mask[Math.floor(Math.random() * mask.length)];
+      return result;
+    },
 
   });
 }
