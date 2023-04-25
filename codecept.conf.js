@@ -1,13 +1,11 @@
-require('dotenv').config({
-  path: './src/main/resources/.env'
-})
-const {
-  setHeadlessWhen,
-  setCommonPlugins
-} = require('@codeceptjs/configure');
+require("ts-node/register");
+require("dotenv").config({
+  path: "./src/main/resources/.env",
+});
+const { setHeadlessWhen, setCommonPlugins } = require("@codeceptjs/configure");
 // turn on headless mode when running with HEADLESS=true environment variable
 // export HEADLESS=true && npx codeceptjs run
-const isHeadless = process.env.HEADLESS === 'true'
+const isHeadless = process.env.HEADLESS === "true";
 
 setHeadlessWhen(isHeadless);
 
@@ -16,32 +14,32 @@ setCommonPlugins();
 
 /** @type {CodeceptJS.MainConfig} */
 exports.config = {
-  tests: './src/test/*_test.js',
-  output: './reports',
+  tests: "./src/test/*_test.ts",
+  output: "./reports",
   helpers: {
     Playwright: {
-      url: 'https://develop--fortress-v2.netlify.app',
+      url: "https://develop--fortress-v2.netlify.app",
       show: true,
-      browser: 'chromium',
+      browser: "chromium",
       waitForAction: 1000,
       waitForTimeout: 5000,
       chrome: {
         args: [
-          '--no-sandbox', 
-          '--disable-setuid-sandbox',
-          '--enable-features=SameSiteByDefaultCookies'
+          "--no-sandbox",
+          "--disable-setuid-sandbox",
+          "--enable-features=SameSiteByDefaultCookies",
         ],
       },
     },
     Utils: {
-      require: './src/main/helpers/utils_helper.js',
-    }
+      require: "./src/main/helpers/utils_helper.ts",
+    },
   },
   include: {
-    I: './steps_file.js',
-    pages: './src/main/pages/pages_import.js',
-    testData: './src/main/resources/test_data/test_data.js',
-    configuration: './src/main/resources/configuration.js',
+    I: "./steps_file.js",
+    pages: "./src/main/pages/pages_import.ts",
+    testData: "./src/main/resources/test_data/test_data.ts",
+    configuration: "./src/main/resources/configuration.ts",
   },
   plugins: {
     screenshotOnFail: {
@@ -49,11 +47,11 @@ exports.config = {
     },
     allure: {
       enabled: true,
-      require: '@codeceptjs/allure-legacy',
+      require: "@codeceptjs/allure-legacy",
     },
     autoDelay: {
       enabled: true,
-      methods: ['amOnPage', 'waitForElement', 'see'],
+      methods: ["amOnPage", "waitForElement", "see"],
       delayBefore: 1000,
     },
     tryTo: {
@@ -66,26 +64,26 @@ exports.config = {
     customLocator: {
       enabled: true,
       showActual: true,
-      attribute: 'data-menu-id',
+      attribute: "data-menu-id",
     },
     autoLogin: {
       enabled: true,
       saveToFile: true,
-      inject: 'loginAs',
+      inject: "loginAs",
       users: {
-          dfQA: {
-              login: (I) => {
-                I.amOnPage('/');
-                I.setPopupCookie(true);
-                I.amOnPage('/');
-                I.waitForText('Dashboard', 10, '.ant-typography')
-              },
-              check: (I) => {
-                I.seeInCurrentUrl('/dashboard');
-              },
+        dfQA: {
+          login: (I) => {
+            I.amOnPage("/");
+            I.setPopupCookie(true);
+            I.amOnPage("/");
+            I.waitForText("Dashboard", 10, ".ant-typography");
           },
+          check: (I) => {
+            I.seeInCurrentUrl("/dashboard");
+          },
+        },
       },
+    },
   },
-  },
-  name: 'DF'
-}
+  name: "DF",
+};

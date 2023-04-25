@@ -104,3 +104,5 @@ dist
 reports
 
 .vscode
+
+.history/*

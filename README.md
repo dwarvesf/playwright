@@ -4,8 +4,6 @@
 |-|-|
 | <img src="https://playwright.dev/img/playwright-logo.svg" width="150" height="150">  |  <img src="https://codecept.io/logo.svg" style="width:100%" width="100" height="100"> |
 
-
-
 **Playwright** is a Node.js library by Microsoft for automating web browsers, offering a high-level API for Chrome, Firefox, and Safari. It enables reliable end-to-end testing, browser automation, and user interaction.
 
 **CodeceptJS** is an end-to-end testing framework that supports **Playwright**, **WebDriver**, **TestCafe**, and **Puppeteer**. It offers an easy-to-use API for testing web apps and supports various programming styles like BDD, TDD, and classical style.
@@ -16,9 +14,9 @@ Overall, this demo project demonstrates the power and simplicity of using Playwr
 
 <p><span style="color:yellow"><strong><em>P/s:</em> Bonus more the execution of Puppeteer, WebdriverIO, TestCafe test tools.</span></p>
 
-# Project Structure
+## Project Structure
 
-```
+``` shell
 |-- root
     |-- .github (folder stores ci config file for github action)
         |-- workflows
@@ -49,13 +47,13 @@ Overall, this demo project demonstrates the power and simplicity of using Playwr
     |-- yarn.lock
 ```
 
-# Pattern
+## Pattern
 
 - [x] Folder and filename should be snack_case
 - [x] Scenario should be Upper first
 - [x] Variables,function should be camelCase
 
-# Visual Studio Code Extension (recommend)
+## Visual Studio Code Extension (recommend)
 
 - [x] ESLint
 - [x] Prettier - Code formatter
@@ -65,69 +63,67 @@ Overall, this demo project demonstrates the power and simplicity of using Playwr
 - [x] Terminal
 - [x] YAML
 
-# Installation
+## Installation
 
 Install all dependencies from **package.json**
 
-# Running Tests
+## Running Tests
 
 The default helper is Playwright.
 
-## Playwright
+### Playwright
 
 Use `codecept.conf.js` to run tests with Playwright:
 
-```
+``
 npx codeceptjs run --steps
-```
+``
 
-## Puppeteer
+### Puppeteer
 
 Use `codecept.puppeteer.conf.js` to run tests with Puppeteer:
 
-```
-npx codeceptjs run --steps -c codecept.puppeteer.conf.js 
-```
+``
+npx codeceptjs run --steps -c codecept.puppeteer.conf.js
+``
 
-
-## WebdriverIO
+### WebdriverIO
 
 Use `codecept.webdriver.conf.js` to run tests with WebdriverIO in Chrome:
 
-```
-npx codeceptjs run -c codecept.webdriver.conf.js --steps 
-```
+``
+npx codeceptjs run -c codecept.webdriver.conf.js --steps
+``
 
-## TestCafe
+### TestCafe
 
 Use `codecept.testcafe.conf.js` to run tests with TestCafe in Chrome:
 
-```
-npx codeceptjs run -c codecept.testcafe.conf.js --steps 
-```
+``
+npx codeceptjs run -c codecept.testcafe.conf.js --steps
+``
 
-## Headless Mode
+### Headless Mode
 
 Run tests in headless mode:
 
-```
+``
 HEADLESS=true npx codeceptjs run --steps
-```
+``
 
 ## Parallel Execution
 
 Run tests in parallel with 3 workers:
 
-```
+``
 npx codeceptjs run-workers 3
-```
+``
 
-## Debugging Tests
+### Debugging Tests
 
 Refer at [here](https://codecept.io/advanced/#tags)
 
-
-## Naming conventions
+### Naming conventions
 
 | Locator               | Abbreviation | Example        |
 | --------------------- | ------------ | -------------- |
