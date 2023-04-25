@@ -3,13 +3,31 @@
     "files": true
   },
   "compilerOptions": {
-    "target": "es2018",
-    "lib": ["es2018"],
-    "esModuleInterop": true,
-    "module": "commonjs",
-    "strictNullChecks": true,
-    "noImplicitAny": true,
-    "noUnusedLocals": false,
-    "noUnusedParameters": false
-  }
+      "module": "CommonJS",
+      "target": "ES2018",
+      "lib": [
+          "ES2018",
+          "DOM"
+      ],
+      "declaration": true,
+      "allowSyntheticDefaultImports": true,
+      "allowJs": true,
+      "esModuleInterop": true,
+      "forceConsistentCasingInFileNames": true,
+      "noImplicitAny": false,
+      "removeComments": true,
+      "resolveJsonModule": true,
+      "isolatedModules": true,
+      "noEmit": true,
+      "inlineSourceMap": true,
+      "moduleResolution": "node",
+      "types": [
+          "*",
+      ],
+      "plugins": [
+          {
+              "name": "typescript-tslint-plugin"
+          }
+      ]
+  },
 }

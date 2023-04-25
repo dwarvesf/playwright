@@ -31,10 +31,7 @@ exports.config = {
           "--enable-features=SameSiteByDefaultCookies",
         ],
       },
-    },
-    Utils: {
-      require: "./src/main/helpers/utils_helper.ts",
-    },
+    }
   },
   include: {
     I: "./steps_file.ts",
@@ -77,10 +74,10 @@ exports.config = {
             I.amOnPage("/");
             I.setPopupCookie(true);
             I.amOnPage("/");
-            I.waitForText("Dashboard", 10, ".ant-typography");
+            I.waitInUrl('/dashboard', 10);
           },
           check: (I) => {
-            I.seeInCurrentUrl("/dashboard");
+            I.seeInCurrentUrl('/dashboard');
           },
         },
       },

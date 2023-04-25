@@ -1,11 +1,13 @@
 // in this file you can append custom step methods to 'I' object
+import TestData from "./src/main/resources/test_data/test_data";
 const cryptoJS = require("crypto-js");
-const { testData } = inject();
 const { actor } = require("codeceptjs");
+
+const testData = new TestData();
 
 export = function () {
   return actor({
-    async setPopupCookie(setting: any) {
+    async setPopupCookie(setting: any): Promise<void> {
       if (setting) {
         const cookieName = "fortress-token";
         const jwt = this.getJWTTokenForLoginCredential();

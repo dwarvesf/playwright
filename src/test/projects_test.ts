@@ -1,22 +1,29 @@
-const { pages, loginAs } = inject();
+import Pages from '../main/pages/PageController';
+const { I, loginAs } = inject();
+
 Feature("Projects management Fortress site").tag("@projects");
 
-Scenario("Verify Projects Page Displayed", async () => {
+const pages = new Pages(I);
+
+Before(async () => {
   await loginAs("dfQA");
-  pages.dashboardPage.then_openAndVerifyProjectsPageDisplays();
+})
+
+Scenario("Verify Projects Page Displayed", async () => {
+  pages.getDashboardPage().then_canSeeDashboardHeaderDisplays();
 });
 
 Scenario("Search Project", async () => {
-  await loginAs("dfQA");
-  pages.dashboardPage.then_openAndVerifyProjectsPageDisplays();
-  pages.projectsPage.then_searchProjectAndVerifyResult();
+  pages.getDashboardPage().then_canSeeDashboardHeaderDisplays();
+  pages.getDashboardPage().and_clickOnProjectsMenu();
+  pages.getProjectPage().then_seeTheProjectName();
 }).tag("@searchProject");
 
 Scenario("Create New Project", async () => {
-  await loginAs("dfQA");
-  pages.dashboardPage.then_openAndVerifyProjectsPageDisplays();
-  pages.projectsPage.and_createNewProject();
-  pages.projectsPage.then_verifyCreateNewProjectSuccess();
-  pages.projectsPage.and_clickOnExistProject();
-  pages.projectsPage.then_verifyProjectDetails();
+  pages.getDashboardPage().then_canSeeDashboardHeaderDisplays();
+  pages.getDashboardPage().and_clickOnProjectsMenu();
+  pages.getProjectPage().and_clickOnCreateNewProject();
+  pages.getNewProjectPage().then_seeTheNewProjectPage();
+  pages.getNewProjectPage().and_createNewProject();
+  pages.getNewProjectPage().then_verifyProjectDetails();
 }).tag("@createNew");
