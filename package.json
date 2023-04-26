@@ -4,18 +4,23 @@
   "description": "",
   "main": "codecept.conf.js",
   "dependencies": {
-    "@codeceptjs/ui": "^0.4.7",
+    "@types/node": "^18.16.0",
     "allure-commandline": "^2.21.0",
     "crypto-js": "^4.1.1",
     "dotenv": "^16.0.3"
   },
   "devDependencies": {
     "@codeceptjs/allure-legacy": "^1.0.2",
+    "@codeceptjs/configure": "^0.10.0",
+    "@codeceptjs/helper": "^2.0.1",
+    "@codeceptjs/ui": "^0.5.0",
     "@wdio/selenium-standalone-service": "^7.30.0",
     "codeceptjs": "^3.4.1",
     "playwright": "^1.32.2",
     "puppeteer": "^19.9.0",
     "testcafe": "^2.5.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.0.4",
     "webdriverio": "^8.3.5"
   },
   "scripts": {

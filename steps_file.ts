@@ -1,21 +1,24 @@
 // in this file you can append custom step methods to 'I' object
-const cryptoJS = require('crypto-js')
-const { I, pages, testData } = inject()
+import TestData from "./src/main/resources/test_data/test_data";
+const cryptoJS = require("crypto-js");
+const { actor } = require("codeceptjs");
 
-module.exports = function() {
+const testData = new TestData();
+
+export = function () {
   return actor({
-    setPopupCookie(setting) {
+    async setPopupCookie(setting: any): Promise<void> {
       if (setting) {
-          const cookieName = 'fortress-token';
-          const jwt = this.getJWTTokenForLoginCredential();
-          const domain = testData.domain;
-          const path = '/';
-          this.setCookie({
-              name: cookieName,
-              value: jwt,
-              domain: domain,
-              path: path,
-          });
+        const cookieName = "fortress-token";
+        const jwt = this.getJWTTokenForLoginCredential();
+        const domain = testData.domain;
+        const path = "/";
+        this.setCookie({
+          name: cookieName,
+          value: jwt,
+          domain: domain,
+          path: path,
+        });
       }
     },
 
@@ -34,24 +37,24 @@ module.exports = function() {
      * @param {string} value — (optional, null by default) value of element.
      * @param {boolean} forceClick - (optional, false by default)
      */
-    seeAndClickElement(locator, value = null, forceClick = false) {
-      this.seeElement(locator)
+    seeAndClickElement(locator: any, value = null, forceClick = false) {
+      this.seeElement(locator);
       switch (forceClick) {
-          case true:
-              if (typeof value === 'string') {
-                  this.forceClick(value, locator);
-              } else {
-                  this.forceClick(locator);
-              }
-              break
+        case true:
+          if (typeof value === "string") {
+            this.forceClick(value, locator);
+          } else {
+            this.forceClick(locator);
+          }
+          break;
 
-          default:
-              if (typeof value === 'string') {
-                  this.click(value, locator);
-              } else {
-                  this.click(locator);
-              }
-              break
+        default:
+          if (typeof value === "string") {
+            this.click(value, locator);
+          } else {
+            this.click(locator);
+          }
+          break;
       }
     },
 
@@ -65,11 +68,11 @@ module.exports = function() {
      * ```
      * @param locator located by CSS|XPath|strict locator.
      */
-    clearAndFillField(locator, value) {
-        this.click(locator);
-        this.clearField(locator);
-        this.fillField(locator, value);
-        this.pressKey('Enter');
+    clearAndFillField(locator: any, value: any) {
+      this.click(locator);
+      this.clearField(locator);
+      this.fillField(locator, value);
+      this.pressKey("Enter");
     },
 
     /**
@@ -83,36 +86,39 @@ module.exports = function() {
      * @param locator element located by CSS|XPath|strict locator.
      * @returns attribute value (If multiple elements found returns an array of texts.)
      */
-    async seeAndGrabTextFrom(locator) {
+    async seeAndGrabTextFrom(locator: any) {
       this.seeElement(locator);
       const text = await this.grabTextFrom(locator);
       return text;
     },
 
     getJWTTokenForLoginCredential() {
-      return this.decryptWithAES(testData.aesEncryptionToken, testData.passPhrase);
+      return this.decryptWithAES(
+        testData.aesEncryptionToken,
+        testData.passPhrase,
+      );
     },
 
-    encryptWithAES(text, passPhrase) {
+    encryptWithAES(text: any, passPhrase: string) {
       return cryptoJS.AES.encrypt(text, passPhrase).toString();
     },
 
-    decryptWithAES(cipherText, passPhrase) {
+    decryptWithAES(cipherText: any, passPhrase: any) {
       const bytes = cryptoJS.AES.decrypt(cipherText, passPhrase);
       const originalText = bytes.toString(cryptoJS.enc.Utf8);
       return originalText;
-    }, 
-
-    randomString(length, chars) {
-      var mask = '';
-      if (chars.indexOf('a') > -1) mask += 'abcdefghijklmnopqrstuvwxyz';
-      if (chars.indexOf('A') > -1) mask += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-      if (chars.indexOf('#') > -1) mask += '0123456789';
-      if (chars.indexOf('!') > -1) mask += '~`!@#$%^&*()_+-={}[]:";\'<>?,./|\\';
-      var result = '';
-      for (var i = length; i > 0; --i) result += mask[Math.floor(Math.random() * mask.length)];
-      return result;
     },
 
+    randomString(length: number, chars: any) {
+      var mask = "";
+      if (chars.indexOf("a") > -1) mask += "abcdefghijklmnopqrstuvwxyz";
+      if (chars.indexOf("A") > -1) mask += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+      if (chars.indexOf("#") > -1) mask += "0123456789";
+      if (chars.indexOf("!") > -1) mask += "~`!@#$%^&*()_+-={}[]:\";'<>?,./|\\";
+      var result = "";
+      for (var i = length; i > 0; --i)
+        result += mask[Math.floor(Math.random() * mask.length)];
+      return result;
+    },
   });
-}
+};
