@@ -1,9 +1,8 @@
-import ProjectsPage from './ProjectsPage';
 import BasePage from './BasePage';
 import Locator = CodeceptJS.Locator;
 const { I } = inject()
 
-const name:string = "AUTO PROJECT " + I.randomString(5, "aA");
+const name:string = 'AUTO PROJECT ' + I.randomString(5, 'aA');
 
 export default class NewProjectPage extends BasePage {
     I: CodeceptJS.I;
@@ -42,13 +41,13 @@ export default class NewProjectPage extends BasePage {
     and_createNewProject() {
         this.fillField
         this.fillField(this.txtProjectName, name);
-        this.fillField(this.txtStatus, "Active");
-        this.fillField(this.txtCountry, "Vietnam");
-        this.fillField(this.txtAccountManagers, "Automation QA");
-        this.fillField(this.txtDeliveryManagers, "Automation QA");
-        this.fillField(this.txtProjectEmail, "autotest@email.com");
-        this.fillField(this.txtClientEmail, "autoclient_email@email.com");
-        this.fillField(this.txtProjectType, "Dwarves");
+        this.fillField(this.txtStatus, 'Active');
+        this.fillField(this.txtCountry, 'Vietnam');
+        this.fillField(this.txtAccountManagers, 'Automation QA');
+        this.fillField(this.txtDeliveryManagers, 'Automation QA');
+        this.fillField(this.txtProjectEmail, 'autotest@email.com');
+        this.fillField(this.txtClientEmail, 'autoclient_email@email.com');
+        this.fillField(this.txtProjectType, 'Dwarves');
         I.click(this.btnProjectFunction);
         I.click(this.btnDevProjFunction);
         I.click(this.btnSubmit);

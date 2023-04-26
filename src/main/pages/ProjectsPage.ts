@@ -22,17 +22,17 @@ export default class ProjectsPage extends BasePage {
     }
 
     then_searchProjectAndVerifyResult() {
-        I.clearAndFillField(this.txtSearchProject, "Not exist project");
-        I.see("No Data");
-        I.clearAndFillField(this.txtSearchProject, "Fortress");
-        I.see("Fortress", this.lblProjectName);
+        I.clearAndFillField(this.txtSearchProject, 'Not exist project');
+        I.see('No Data');
+        I.clearAndFillField(this.txtSearchProject, 'Fortress');
+        I.see('Fortress', this.lblProjectName);
     }
     
     and_clickOnCreateNewProject() {
-        I.click("Add Project");
+        I.click('Add Project');
     }
 
     then_seeTheProjectName() {
-        I.see("Projects", this.lblProjectHeader);
+        I.see('Projects', this.lblProjectHeader);
     }
 }

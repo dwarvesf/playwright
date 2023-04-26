@@ -14,6 +14,7 @@ setCommonPlugins();
 
 /** @type {CodeceptJS.MainConfig} */
 exports.config = {
+  ...require("ts-node/register"),
   tests: "./src/test/*_test.ts",
   output: "./reports",
   helpers: {
@@ -71,9 +72,9 @@ exports.config = {
       users: {
         dfQA: {
           login: (I) => {
-            I.amOnPage("/");
+            I.amOnPage('/');
             I.setPopupCookie(true);
-            I.amOnPage("/");
+            I.amOnPage('/');
             I.waitInUrl('/dashboard', 10);
           },
           check: (I) => {
