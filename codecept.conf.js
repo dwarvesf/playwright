@@ -1,3 +1,4 @@
+const { DiscordHelper } = require('./src/main/helpers/DiscordHelper.ts');
 require("ts-node/register");
 require("dotenv").config({
   path: "./src/main/resources/.env",
@@ -31,6 +32,9 @@ exports.config = {
           "--enable-features=SameSiteByDefaultCookies",
         ],
       },
+    },
+    DiscordHelper: {
+      require: './src/main/helpers/DiscordHelper.ts'
     }
   },
   include: {

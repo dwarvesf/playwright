@@ -22,9 +22,11 @@ export default class DashboardPage extends BasePage {
 
     then_canSeeDashboardHeaderDisplays() {
         I.see('Dashboard', this.lblDashboardHeader);
+        I.sendToDiscord('Automation testing report: Test failed');
     }
 
     and_clickOnProjectsMenu() {
         I.click(this.btnProjectMenu);
+        I.sendToDiscord('Automation testing report: Test failed');
     }
 }
