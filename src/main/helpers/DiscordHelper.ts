@@ -22,3 +22,7 @@ class DiscordHelper extends CodeceptHelper {
 }
 
 module.exports = DiscordHelper;
+
+/** TODO */
+// 1: Should apply for all helpers (not only playwright).
+// 2: Add implementation to Listener (the clean-up Listener).
