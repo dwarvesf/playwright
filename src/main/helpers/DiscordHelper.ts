@@ -19,6 +19,7 @@ class DiscordHelper extends CodeceptHelper {
       return super._failed(test);
     });
   }
+  
 }
 
 module.exports = DiscordHelper;
