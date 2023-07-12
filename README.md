@@ -119,6 +119,11 @@ Run tests in parallel with 3 workers:
 npx codeceptjs run-workers 3
 ``
 
+## How to run to generate report in Testomat.io - using Playwright for example
+``
+TESTOMATIO_URL=https://app.testomat.io TESTOMATIO="API" npx codeceptjs run
+``
+
 ### Debugging Tests
 
 Refer at [here](https://codecept.io/advanced/#tags)

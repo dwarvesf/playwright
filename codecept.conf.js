@@ -47,6 +47,13 @@ exports.config = {
     screenshotOnFail: {
       enabled: true,
     },
+    testomatio: {
+      enabled: true,
+      require: '@testomatio/reporter/lib/adapter/codecept',
+      //The apiKey will be getting from the Testomat.io so that value is quite sensitive to put in here
+      //TODO: find the alternative way to get this one and safe carefully.
+      apiKey: '',
+    },
     allure: {
       enabled: true,
       require: "@codeceptjs/allure-legacy",
